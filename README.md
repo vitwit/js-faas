@@ -1,7 +1,22 @@
-# js-fass
+# Js-Fass
 Node.Js SDK for OpenFaaS
 
 
+# How to use
+
+### Install
+
+```sh
+	npm i -g @vitwit/js-fass
+```
+
+### Create a client
+
+```js
+	import 'js-fass';
+	
+	var jsFass = new JsFass({})
+```
 
 <details>
 
@@ -12,9 +27,7 @@ getFunctions
  **Example**
 
  ```js
- const  { data, error } = await Fassjs.getFunctions({
-
-})
+ const  { data, error } = await jsFass.getFunctions()
 ```
 **Responses**
 
@@ -46,8 +59,39 @@ createFunction
  **Example**
 
  ```js
- const  { data, error } = await Fassjs.createFunction({
-  /** FunctionDefintion modal, description-Function to deploy,required-true */
+ const  { data, error } = await jsFass.createFunction({
+  "service": "nodeinfo",
+  "network": "func_functions",
+  "image": "functions/nodeinfo:latest",
+  "envProcess": "node main.js",
+  "envVars": {
+    "additionalProp1": "string",
+    "additionalProp2": "string",
+    "additionalProp3": "string"
+  },
+  "constraints": [
+    "node.platform.os == linux"
+  ],
+  "labels": {
+    "foo": "bar"
+  },
+  "annotations": {
+    "topics": "awesome-kafka-topic",
+    "foo": "bar"
+  },
+  "secrets": [
+    "secret-name-1"
+  ],
+  "registryAuth": "dXNlcjpwYXNzd29yZA==",
+  "limits": {
+    "memory": "128M",
+    "cpu": "0.01"
+  },
+  "requests": {
+    "memory": "128M",
+    "cpu": "0.01"
+  },
+  "readOnlyRootFilesystem": true
 })
 ```
 **Responses**
@@ -92,7 +136,7 @@ updateFunction
  **Example**
 
  ```js
- const  { data, error } = await Fassjs.updateFunction({
+ const  { data, error } = await jsFass.updateFunction({
   /** FunctionDefintion modal, description-Function to update,required-true */
 })
 ```
@@ -141,7 +185,7 @@ deleteFunction
  **Example**
 
  ```js
- const  { data, error } = await Fassjs.deleteFunction({
+ const  { data, error } = await jsFass.deleteFunction({
   /** DeleteFunctionRequest modal, description-Function to delete,required-true */
 })
 ```
@@ -190,7 +234,7 @@ handleAlert
  **Example**
 
  ```js
- const  { data, error } = await Fassjs.handleAlert({
+ const  { data, error } = await jsFass.handleAlert({
   /** undefined modal,type - object, description-Incoming alert */
 })
 ```
@@ -227,7 +271,7 @@ invokeFunctionAsync
  **Example**
 
  ```js
- const  { data, error } = await Fassjs.invokeFunctionAsync({
+ const  { data, error } = await jsFass.invokeFunctionAsync({
  input:undefined, /** description-(Optional) data to pass to function,required-false */
   _pathParams: {
    functionName:string, /** description-Function name,required-true */ 
@@ -276,7 +320,7 @@ invokeFunction
  **Example**
 
  ```js
- const  { data, error } = await Fassjs.invokeFunction({
+ const  { data, error } = await jsFass.invokeFunction({
  input:undefined, /** description-(Optional) data to pass to function,required-false */
   _pathParams: {
    functionName:string, /** description-Function name,required-true */ 
@@ -325,7 +369,7 @@ scaleFunction
  **Example**
 
  ```js
- const  { data, error } = await Fassjs.scaleFunction({
+ const  { data, error } = await jsFass.scaleFunction({
  input:undefined, /** description-Function to scale plus replica count,required-false */
   _pathParams: {
    functionName:string, /** description-Function name,required-true */ 
@@ -377,7 +421,7 @@ scaleFunction
  **Example**
 
  ```js
- const  { data, error } = await Fassjs.({
+ const  { data, error } = await jsFass.({
   _pathParams: {
    functionName:string, /** description-Function name,required-true */ 
   }
@@ -428,7 +472,7 @@ getSecrets
  **Example**
 
  ```js
- const  { data, error } = await Fassjs.getSecrets({
+ const  { data, error } = await jsFass.getSecrets({
 
 })
 ```
@@ -459,7 +503,7 @@ createSecret
  **Example**
 
  ```js
- const  { data, error } = await Fassjs.createSecret({
+ const  { data, error } = await jsFass.createSecret({
   /** Secret modal, description-A new secret to create,required-true */
 })
 ```
@@ -505,7 +549,7 @@ updateSecret
  **Example**
 
  ```js
- const  { data, error } = await Fassjs.updateSecret({
+ const  { data, error } = await jsFass.updateSecret({
   /** Secret modal, description-Secret to update,required-true */
 })
 ```
@@ -554,7 +598,7 @@ deleteSecret
  **Example**
 
  ```js
- const  { data, error } = await Fassjs.deleteSecret({
+ const  { data, error } = await jsFass.deleteSecret({
   /** SecretName modal, description-Secret to delete,required-true */
 })
 ```
@@ -603,7 +647,7 @@ getLogsOfAFunction
  **Example**
 
  ```js
- const  { data, error } = await Fassjs.getLogsOfAFunction({
+ const  { data, error } = await jsFass.getLogsOfAFunction({
   _params: {
    name:string, /** description-Function name,required-true */ 
    since:string, /** description-Only return logs after a specific date (RFC3339),required-false */ 
@@ -657,7 +701,7 @@ getInfo
  **Example**
 
  ```js
- const  { data, error } = await Fassjs.getInfo({
+ const  { data, error } = await jsFass.getInfo({
 
 })
 ```
@@ -706,7 +750,7 @@ checkHealth
  **Example**
 
  ```js
- const  { data, error } = await Fassjs.checkHealth({
+ const  { data, error } = await jsFass.checkHealth({
 
 })
 ```
