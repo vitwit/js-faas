@@ -230,7 +230,7 @@ export default class JsFass {
     });
   }
   
-  undefined(data) {
+  getFunctionSummary(data) {
     return this.fetchApi({
       method: "GET",
       _url: '/system/function/{functionName}',

@@ -414,14 +414,14 @@ scaleFunction
 
 <details>
 
-<summary></summary>
+<summary>getFunctionSummary</summary>
 
-
+getFunctionSummary
 ---
  **Example**
 
  ```js
- const  { data, error } = await jsFass.({
+ const  { data, error } = await Fassjs.getFunctionSummary({
   _pathParams: {
    functionName:string, /** description-Function name,required-true */ 
   }
