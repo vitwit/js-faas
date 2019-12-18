@@ -1,4 +1,4 @@
-# Js-Fass
+# Js-Fass (WIP)
 Node.Js SDK for OpenFaaS
 
 
