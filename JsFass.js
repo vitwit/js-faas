@@ -1,8 +1,11 @@
 
-import axios from "axios";
+const axios = require('axios')
 
+class JsFass {
 
-export default class JsFass {
+  /**
+   * Constructor
+   */
   constructor( headersObj ={}) {
     this.version ='1.0.0'
     this.requiredHeaders = '';
@@ -18,7 +21,7 @@ export default class JsFass {
     }
 
     this.configs = {
-      baseURL: "http://localhost",
+      baseURL: "http://localhost:8080",
       headers: {
         ...headersObj,
       }
@@ -94,9 +97,12 @@ export default class JsFass {
               }
             : {})
         });
+
         obj.data = resObj.data;
         resolve(obj);
       } catch (error) {
+
+        console.log('error', error)
         if (error.response) {
           obj.error = error.response.data;
         } else if (error.request) {
@@ -295,3 +301,6 @@ export default class JsFass {
   }
   
 }
+
+//Export class
+module.exports = JsFass;
