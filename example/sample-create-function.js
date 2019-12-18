@@ -9,11 +9,23 @@ const faasSDK = new JsFass();
 
 app.get('/', (req, res) => {
 	faasSDK.getFunctions()
-		.then(response => console.log('response', response))
-		.catch(e => console.log('error', e))
+		.then(response => {
+			console.log('response', response)
 
-	res.send('Hello World!')
+			res.send({
+				status: response.error? 'error' : 'success',
+				data: response.data,
+				error: response.error
+			})
+		})
+		.catch(e => {
+			console.log('error', e)
 
+			res.send({
+				status: 'error',
+				error: e
+			})
+		})
 })
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
