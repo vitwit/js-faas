@@ -1,4 +1,4 @@
-# Js-Fass (WIP)
+# Js-Faas (WIP)
 Node.Js SDK for OpenFaaS
 
 
@@ -7,15 +7,15 @@ Node.Js SDK for OpenFaaS
 ### Install
 
 ```sh
-	npm i -g @vitwit/js-fass
+	npm i -g @vitwit/js-faas
 ```
 
 ### Create a client
 
 ```js
-	import 'js-fass';
+	import 'js-faas';
 	
-	var jsFass = new JsFass({})
+	var jsFaas = new JsFaas({})
 ```
 
 <details>
@@ -27,7 +27,7 @@ getFunctions
  **Example**
 
  ```js
- const  { data, error } = await jsFass.getFunctions()
+ const  { data, error } = await jsFaas.getFunctions()
 ```
 **Responses**
 
@@ -59,7 +59,7 @@ createFunction
  **Example**
 
  ```js
- const  { data, error } = await jsFass.createFunction({
+ const  { data, error } = await jsFaas.createFunction({
   "service": "nodeinfo",
   "network": "func_functions",
   "image": "functions/nodeinfo:latest",
@@ -136,7 +136,7 @@ updateFunction
  **Example**
 
  ```js
- const  { data, error } = await jsFass.updateFunction({
+ const  { data, error } = await jsFaas.updateFunction({
   /** FunctionDefintion modal, description-Function to update,required-true */
 })
 ```
@@ -185,7 +185,7 @@ deleteFunction
  **Example**
 
  ```js
- const  { data, error } = await jsFass.deleteFunction({
+ const  { data, error } = await jsFaas.deleteFunction({
   /** DeleteFunctionRequest modal, description-Function to delete,required-true */
 })
 ```
@@ -234,7 +234,7 @@ handleAlert
  **Example**
 
  ```js
- const  { data, error } = await jsFass.handleAlert({
+ const  { data, error } = await jsFaas.handleAlert({
   /** undefined modal,type - object, description-Incoming alert */
 })
 ```
@@ -271,7 +271,7 @@ invokeFunctionAsync
  **Example**
 
  ```js
- const  { data, error } = await jsFass.invokeFunctionAsync({
+ const  { data, error } = await jsFaas.invokeFunctionAsync({
  input:undefined, /** description-(Optional) data to pass to function,required-false */
   _pathParams: {
    functionName:string, /** description-Function name,required-true */ 
@@ -320,7 +320,7 @@ invokeFunction
  **Example**
 
  ```js
- const  { data, error } = await jsFass.invokeFunction({
+ const  { data, error } = await jsFaas.invokeFunction({
  input:undefined, /** description-(Optional) data to pass to function,required-false */
   _pathParams: {
    functionName:string, /** description-Function name,required-true */ 
@@ -369,7 +369,7 @@ scaleFunction
  **Example**
 
  ```js
- const  { data, error } = await jsFass.scaleFunction({
+ const  { data, error } = await jsFaas.scaleFunction({
  input:undefined, /** description-Function to scale plus replica count,required-false */
   _pathParams: {
    functionName:string, /** description-Function name,required-true */ 
@@ -421,7 +421,7 @@ getFunctionSummary
  **Example**
 
  ```js
- const  { data, error } = await Fassjs.getFunctionSummary({
+ const  { data, error } = await Faasjs.getFunctionSummary({
   _pathParams: {
    functionName:string, /** description-Function name,required-true */ 
   }
@@ -472,7 +472,7 @@ getSecrets
  **Example**
 
  ```js
- const  { data, error } = await jsFass.getSecrets({
+ const  { data, error } = await jsFaas.getSecrets({
 
 })
 ```
@@ -503,7 +503,7 @@ createSecret
  **Example**
 
  ```js
- const  { data, error } = await jsFass.createSecret({
+ const  { data, error } = await jsFaas.createSecret({
   /** Secret modal, description-A new secret to create,required-true */
 })
 ```
@@ -549,7 +549,7 @@ updateSecret
  **Example**
 
  ```js
- const  { data, error } = await jsFass.updateSecret({
+ const  { data, error } = await jsFaas.updateSecret({
   /** Secret modal, description-Secret to update,required-true */
 })
 ```
@@ -598,7 +598,7 @@ deleteSecret
  **Example**
 
  ```js
- const  { data, error } = await jsFass.deleteSecret({
+ const  { data, error } = await jsFaas.deleteSecret({
   /** SecretName modal, description-Secret to delete,required-true */
 })
 ```
@@ -647,7 +647,7 @@ getLogsOfAFunction
  **Example**
 
  ```js
- const  { data, error } = await jsFass.getLogsOfAFunction({
+ const  { data, error } = await jsFaas.getLogsOfAFunction({
   _params: {
    name:string, /** description-Function name,required-true */ 
    since:string, /** description-Only return logs after a specific date (RFC3339),required-false */ 
@@ -701,7 +701,7 @@ getInfo
  **Example**
 
  ```js
- const  { data, error } = await jsFass.getInfo({
+ const  { data, error } = await jsFaas.getInfo({
 
 })
 ```
@@ -750,7 +750,7 @@ checkHealth
  **Example**
 
  ```js
- const  { data, error } = await jsFass.checkHealth({
+ const  { data, error } = await jsFaas.checkHealth({
 
 })
 ```

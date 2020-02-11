@@ -1,7 +1,7 @@
 
 const axios = require('axios')
 
-class JsFass {
+class JsFaas {
 
   /**
    * Constructor
@@ -10,7 +10,7 @@ class JsFass {
     this.version ='1.0.0'
     this.requiredHeaders = '';
     this.optionalHeaders = '';
-    this.name = "JsFass";
+    this.name = "JsFaas";
 
     if(this.requiredHeaders){
       this.requiredHeaders.split(',').forEach(header => {
@@ -303,4 +303,4 @@ class JsFass {
 }
 
 //Export class
-module.exports = JsFass;
+module.exports = JsFaas;

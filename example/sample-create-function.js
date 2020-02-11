@@ -1,11 +1,11 @@
 const express = require('express')
 const request = require('request')
-const JsFass = require('./../JsFass')
+const JsFaas = require('./../JsFaas')
 const axios = require('axios')
 
 const app = express()
 const port = 3000
-const faasSDK = new JsFass();
+const faasSDK = new JsFaas();
 
 app.get('/', (req, res) => {
 	faasSDK.getFunctions()
